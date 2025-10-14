@@ -1,0 +1,54 @@
+{
+  // ────────────────────────────────────────────────
+  // LATEX WORKSHOP TOOLCHAIN CONFIGURATION
+  // This tells VS Code how to compile LaTeX projects.
+  // ────────────────────────────────────────────────
+
+  // List of available tools LaTeX Workshop can use.
+  // We'll define just one: latexmk (the most robust builder).
+  "latex-workshop.latex.tools": [
+    {
+      // Internal name of the tool (appears in VS Code menus)
+      "name": "latexmk",
+
+      // Command to run (the actual program installed in WSL)
+      "command": "latexmk",
+
+      // Arguments to pass to latexmk
+      "args": [
+        "-synctex=1",             // enables forward ↔ inverse PDF/source navigation
+        "-interaction=nonstopmode", // compile without stopping for errors (logs them instead)
+        "-file-line-error",       // display errors with file and line numbers
+        "-pdf",                   // tells latexmk to produce a PDF (not DVI)
+        "-outdir=out",            // place all output and aux files inside ./out/
+        "%DOC%"                   // placeholder: replaced by the current .tex document
+      ]
+    }
+  ],
+
+  // Recipes tell LaTeX Workshop what sequence of tools to run
+  // when you build your document (you can define multiple recipes).
+  "latex-workshop.latex.recipes": [
+    {
+      // Friendly name of the recipe shown in the Command Palette
+      "name": "latexmk ➜ pdf",
+
+      // List of tools to run (here just one: latexmk)
+      "tools": ["latexmk"]
+    }
+  ],
+
+  // PDF viewer configuration:
+  // "tab" opens the PDF in a VS Code tab.
+  // Alternatives: "external" (system viewer) or "browser" (internal panel).
+  "latex-workshop.view.pdf.viewer": "tab",
+
+  // Controls automatic compilation.
+  // "onSave" builds automatically on every save (can be noisy);
+  // "never" means you build manually (Ctrl + Alt + B).
+  "latex-workshop.latex.autoBuild.run": "never"
+
+  // ────────────────────────────────────────────────
+  // END OF CONFIGURATION
+  // ────────────────────────────────────────────────
+}

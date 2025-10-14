@@ -1,0 +1,38 @@
+# ────────────────────────────────
+# BUILD OUTPUT AND AUX FILES
+# ────────────────────────────────
+out/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.run.xml
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.out
+
+# ────────────────────────────────
+# LATEX INTERMEDIATE FILES FROM CHAPTERS
+# (created by \include or \input)
+# ────────────────────────────────
+**/*.aux
+**/*.log
+
+# ────────────────────────────────
+# EDITOR/OS JUNK FILES
+# ────────────────────────────────
+*.DS_Store
+*.swp
+*.bak
+*.tmp
+~$*
+
+# ────────────────────────────────
+# LATEX WORKSHOP TEMP FILES
+# ────────────────────────────────
+.vscode/.texlab

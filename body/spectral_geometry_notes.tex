@@ -1,0 +1,409 @@
+\section*{Page 1}
+
+\textbf{GR for Cosmology, Achim Kempf \hfill Lecture~11}
+
+\subsection*{Nontrivial shape of a manifold}
+
+\textbf{Recall.}  The nontrivial shape of a manifold reveals itself in several ways:
+
+\begin{enumerate}
+\item \textbf{Violation of angle sum laws.}  For a triangle with angles \(\alpha,\beta,\gamma\) one has
+\[
+\alpha + \beta + \gamma \neq 180^\circ.
+\]
+Such a \emph{deficit angle} can be used to encode the shape.  (This idea is used in some approaches to quantum gravity.)
+\item \textbf{Violation of Pythagoras' law.}  For a triangle with side lengths \(a,b,c\) one has
+\[
+a^2 + b^2 \neq c^2.
+\]
+Thus one can encode the shape through metric distances, i.e. via a Riemannian metric \(g\) on \(M\).
+\item \textbf{Nontrivial parallel transport around loops.}  A vector transported around a closed loop generally does not return to itself.  One can therefore encode the shape through an affine connection \(\Gamma\) on \(M\).
+\end{enumerate}
+
+\subsection*{Redundancy of local descriptions}
+
+\textbf{Observation.}  Such local descriptions carry redundant information.  Why?  Two (pseudo-)Riemannian manifolds \((M,g)\) and \((M,g')\) should be considered equivalent— they describe the same space–time— if there exists an isometric (metric preserving) diffeomorphism
+\[
+e:(M,g)\longrightarrow (M,g').
+\]
+Here ``metric preserving'' means that under the pull–back map \(T_e^*:T_p(M_2)\to T_p(M_1)\) the metric obeys \(T_e^*(g')=g\).  In other words, \(e\) is merely a change of chart.  A small note in the original handwritten page comments that this redundancy makes it hard to identify the true degrees of freedom so that they can be quantized.
+
+\section*{Page 2}
+
+\subsection*{Intuition and definitions}
+
+\textbf{Intuition.}  If \((M,g)\) and \((M,g')\) are related by an isometric diffeomorphism then they are merely different coordinate descriptions of the same manifold and hence have the same ``shape.''
+
+\textbf{Definition.}  A \emph{(pseudo-)Riemannian structure}, say \(\mathcal{E}\), is an equivalence class of (pseudo-)Riemannian manifolds which can be mapped into each other via metric–preserving diffeomorphisms (i.e. coordinate changes).  Hence space(time) ought to be modelled as a (pseudo-)Riemannian structure \(\mathcal{E}\), that is, as an equivalence class of pairs \((M,g)\).
+
+\textbf{Problem.}  These equivalence classes are hard to handle because the absence or existence of an isometry relating two metrics \(g\) and \(g'\) is difficult to check.
+
+\subsection*{Gauge fixing}
+
+One would like to identify exactly one representative \((M,g)\) for each class \(\mathcal{E}\).  Choosing such a representative is called \emph{fixing the gauge}.  Gauge fixing is useful in many contexts.  A key example occurs in quantum gravity.
+
+The previous page discussed how to detect and describe shape through
+\begin{itemize}
+\item deficit angles,
+\item nontrivial metric distances \((M,g)\), and
+\item nontrivial parallel transport \((M,\Gamma)\),
+\end{itemize}
+which were illustrated by a simple triangle diagram in the original notes.
+
+\section*{Page 3}
+
+\subsection*{Path integral formulation}
+
+\textbf{Recall.}  Quantum theory can be formulated in path integral form.
+
+\textbf{Applied to gravity.}  One might expect to have to handle path integrals of the type
+\[
+\int e^{i S[\mathcal{E}]} \;D\mathcal{E},
+\]
+where the integration is over all Riemannian structures \(\mathcal{E}\).  However, what one initially has is, schematically,
+\[
+\int e^{iS[g]}\,\delta(\mathcal{E})\,Dg
+\quad\text{or}\quad
+\int e^{iS[\Gamma]}\,\delta(\mathcal{E})\,D\Gamma.
+\]
+Here the gauge–fixing functional \(\delta(\mathcal{E})\) must be chosen so that from each equivalence class of metrics \(g\) (or connections \(\Gamma\)) only one representative contributes to the path integral.  A large part of quantum gravity research is concerned with constructing suitable gauge fixings \(\delta(\mathcal{E})\) for metrics \(g\) or connections \(\Gamma\) or other variables derived from them (for example the frame fields; see ``loop quantum gravity'').
+
+\subsection*{Spectral geometry}
+
+\textbf{Question.}  Can one detect and describe a (pseudo-)Riemannian structure \(\mathcal{E}\) directly, without reference to a particular metric \(g\)?
+
+\textbf{Answer.}  Possibly yes, using \emph{spectral geometry}.  The idea is that a manifold's vibration spectrum \(\{\lambda_n\}\) (the eigenvalues of a Laplace–type operator) depends only on \(\mathcal{E}\) and not on the choice of coordinates.  The classical question of spectral geometry, posed by Hermann Weyl in 1911, is:
+
+\begin{center}
+\emph{Does the spectrum \(\{\lambda_n\}\) encode all information about the shape, i.e. the structure \(\mathcal{E}\)?}
+\end{center}
+
+\section*{Page 4}
+
+\textbf{Remarks.}
+\begin{itemize}
+\item If the manifold \(M\) has infinite volume then the spectrum of \(\Delta\) becomes (almost) completely continuous, so one cannot hope to recover discrete information from it.
+\item The spectral geometry of pseudo–Riemannian manifolds (with Lorentzian signature) is still very little developed.
+\end{itemize}
+
+\textbf{Theorem.}  Assume \((M,g)\) is a compact Riemannian manifold without boundary (so that \(M\) has finite volume).  Then, for each degree \(p\), the spectrum \(\mathrm{spec}(\Delta_p)\) of the Laplace–de Rham operator acting on \(p\)–forms is discrete, with finite degeneracies and without accumulation points.
+
+\textbf{In practice.}  One can model an arbitrarily large part of the universe by a compact Riemannian manifold \((M,g)\).  This allows us to describe, for example, 3–dimensional space at a fixed time (or even 4–dimensional spacetimes after a so–called \emph{Wick rotation}).
+
+\subsection*{Types of waves on \(M\)}
+
+On such a manifold (assumed compact and without boundary) one can consider \(p\)–form fields \(w(t)\) with time evolution governed by various differential equations:
+
+\begin{enumerate}
+\item \textbf{Schrödinger equation}
+\[
+ i\hbar\,\partial_t w(x,t)
+ \;=\; -\frac{\hbar^2}{2m}\,\Delta_p\,w(x,t).
+\]
+\item \textbf{Heat equation}
+\[
+ \partial_t w(x,t)
+ \;=\; -\,\Delta_p\,w(x,t).
+\]
+\item \textbf{Klein–Gordon (and acoustic) equation}
+\[
+ -\,\partial_t^2 w(x,t)
+ \;=\; \beta\,\Delta_p\,w(x,t),
+\]
+ where \(\beta\) is a constant (for acoustic waves \(\beta\) is related to the speed of sound).  These equations model different types of waves (including ``sounds'') on \(M\).
+\end{enumerate}
+
+\section*{Page 5}
+
+Each of the evolution equations above can be solved by separation of variables.  Suppose we find an eigenform \(\tilde{\omega}(x)\) of \(\Delta_p\) with eigenvalue \(\lambda\):
+\[
+ \Delta_p\,\tilde{\omega}(x) \;=\; \lambda\,\tilde{\omega}(x).
+\]
+Because \(\Delta_p\) is self–adjoint with respect to the inner product \((w,v)=\int_M w\wedge *v\), such eigenforms exist and form an orthonormal basis.  Then the evolution equations are solved by
+
+\begin{align*}
+ \text{Schrödinger:}&\quad
+ w(x,t) \;=\; e^{\tfrac{i\hbar\lambda}{2m}\,t}\,\tilde{\omega}(x),\\[0.3em]
+ \text{Heat:}&\quad
+ w(x,t) \;=\; e^{-\,2\lambda\,t}\,\tilde{\omega}(x),\\[0.3em]
+ \text{Klein–Gordon:}&\quad
+ w(x,t) \;=\; e^{i\beta\lambda\,t}\,\tilde{\omega}(x).
+\end{align*}
+
+It follows that the spectrum \(\mathrm{spec}(\Delta_p)\) is the \emph{overtone spectrum} of \(p\)–form type waves on the manifold \(M\).
+
+\subsection*{Properties of \(\mathrm{spec}(\Delta_p)\)}
+
+\begin{itemize}
+\item \textbf{Expectations.}  The spectra \(\mathrm{spec}(\Delta_p)\) for different \(p\) carry different information about \(M\).  For example, scalar and vector seismic waves travel and reflect differently.
+\item \textbf{Symmetries.}  One has the commutation relations
+\[
+ [\Delta,*]=0,\qquad [\Delta,d]=0,\qquad [\Delta,\delta]=0,
+\]
+ where \(*\) is the Hodge star, \(d\) is the exterior derivative and \(\delta\) is the codifferential.  These relations imply that \(\mathrm{spec}(\Delta_p)\) is related to \(\mathrm{spec}(\Delta_{n-p})\), \(\mathrm{spec}(\Delta_{p+1})\) and \(\mathrm{spec}(\Delta_{p-1})\).
+\end{itemize}
+
+\section*{Page 6}
+
+\subsection*{Hodge duality}
+
+Using \([\Delta,*]=0\) one shows that the spectra in complementary degrees coincide.  Suppose \(\omega\in\Lambda_p\) and \(\Delta\omega=\lambda\,\omega\).  Define \(\nu:=*\omega\in\Lambda_{n-p}\).  Then
+\[
+ \Delta\nu \;=\; \Delta(*\omega) \;=\; *\,\Delta\omega
+ \;=\; *\,\lambda\,\omega \;=\; \lambda\,(*\omega)
+ \;=\; \lambda\,\nu.
+\]
+Hence
+\[
+ \mathrm{spec}(\Delta_p)\;=\;\mathrm{spec}(\Delta_{n-p}).
+\]
+
+A careful analysis of the commutators \([\Delta,d]=0\) and \([\Delta,\delta]=0\) yields much more information about the spectra.
+
+\subsection*{Exact, co-exact and harmonic forms}
+
+\begin{itemize}
+\item Notice that \(\Delta\) maps exact forms to exact forms.  If \(w=dv\) then
+\[
+ \Delta w \;=\; \Delta (d v)
+ \;=\; d\,\delta\,d v,
+\]
+ so \(d\Lambda_{p-1}\) is mapped into itself.
+
+\item Analogously, \(\Delta\) maps co-exact forms to co-exact forms.  If \(w=\delta\beta\) then
+\[
+ \Delta w \;=\; \delta d\,\delta\beta,
+\]
+ so \(\delta\Lambda_{p+1}\) is mapped into itself.
+
+\item Finally, \(\Delta\) can map forms into zero: its eigenspace with eigenvalue \(0\) is denoted \(\Lambda_p^0\).  Elements of \(\Lambda_p^0\) are called \emph{harmonic \(p\)–forms}.
+\end{itemize}
+
+\section*{Page 7}
+
+From the previous discussion we know that \(\Delta\) maps \(d\Lambda_{p-1}\), \(\delta\Lambda_{p+1}\) and \(\Lambda_p^0\) into themselves.  There are no other invariant subspaces for \(\Delta\).  This leads to the fundamental:
+
+\subsection*{Proposition (Hodge decomposition)}
+
+\[
+ \Lambda_p \;=\;
+ d\Lambda_{p-1}\;\oplus\;
+ \delta\Lambda_{p+1}\;\oplus\;
+ \Lambda_p^0.
+\]
+Here \(\oplus\) denotes an orthogonal direct sum.  Thus every \(p\)–form can be uniquely written as the sum of an exact form, a co-exact form, and a harmonic form.
+
+\subsection*{Why is this useful?}
+
+It means that every eigenvector of \(\Delta_p\) lies entirely in one of the three subspaces \(d\Lambda_{p-1}\), \(\delta\Lambda_{p+1}\) or \(\Lambda_p^0\).  In particular, an eigenform is never a linear combination of vectors in these different subspaces.
+
+\subsection*{Outline of the proof}
+
+It is clear that \(d\Lambda_{p-1}\subset \Lambda_p\) and \(\delta\Lambda_{p+1}\subset \Lambda_p\).  One needs to show the orthogonality and completeness:
+\begin{enumerate}
+\item Show that \(d\Lambda_{p-1}\) is orthogonal to \(\delta\Lambda_{p+1}\).  Indeed, if \(w=d\alpha\in d\Lambda_{p-1}\) and \(\beta=\delta\beta\in\delta\Lambda_{p+1}\), then \((w,\beta)=(d\alpha,\delta\beta)=(\alpha,d\delta\beta)=0\), because \(d\delta\beta\) is orthogonal to \(\alpha\).
+
+\item Show that if \(w\in\Lambda_p\) and \(w\perp d\Lambda_{p-1}\) and \(w\perp\delta\Lambda_{p+1}\) then \(w\in\Lambda_p^0\).  Indeed, from \(w\perp d\Lambda_{p-1}\) it follows that \(\delta w=0\), and from \(w\perp \delta\Lambda_{p+1}\) it follows that \(dw=0\).  Therefore \(\Delta w=(d\delta+\delta d)w=0\) and \(w\) is harmonic.
+\end{enumerate}
+
+(Only the first two steps are spelled out in the notes; completing the proof is left as an exercise.)
+
+\section*{Page 8}
+
+\subsection*{Harmonic forms}
+
+If \(w\in\Lambda_p^0\) (i.e. \(dw=0\) and \(\delta w=0\)) then \(w\) is orthogonal to \(d\Lambda_{p-1}\) and to \(\delta\Lambda_{p+1}\).  Indeed, from \((w,(\delta d+d\delta)w)=0\) one obtains
+\[
+ (\delta w,\delta w) + (dw,dw) = 0
+ \quad\Longrightarrow\quad
+ dw=0,\ \delta w=0.
+\]
+Harmonic forms are closed and co-closed but are neither exact nor co-exact.  Their dimension
+\[
+ B_p\;=\;\dim(\Lambda_p^0)
+\]
+measures the topological nontriviality of the manifold.  The numbers \(B_p\) are the \emph{Betti numbers}.  For all \(\alpha\in\Lambda_{p-1}\) one has \((d\alpha,\delta w)=0\); hence \(w\perp d\Lambda_{p-1}\).  For all \(\beta\in\Lambda_{p+1}\) one has \((\delta\beta,w)=0\); hence \(w\perp \delta\Lambda_{p+1}\).
+
+\subsection*{Conclusion so far}
+
+In the Hodge decomposition, \(\Delta\) maps every term into itself; that is, \(\Delta\) can be diagonalized separately in each of the subspaces \(d\Lambda_{p-1}\), \(\delta\Lambda_{p+1}\) and \(\Lambda_p^0\) for all \(p\).  Symbolically,
+\[
+\begin{array}{l}
+ \Lambda_{p-1} = d\Lambda_{p-2}\;\oplus\;\delta\Lambda_p\;\oplus\;\Lambda_{p-1}^0,\\
+ \Lambda_p     = d\Lambda_{p-1}\;\oplus\;\delta\Lambda_{p+1}\;\oplus\;\Lambda_p^0,\\
+ \Lambda_{p+1} = d\Lambda_p\;\oplus\;\delta\Lambda_{p+2}\;\oplus\;\Lambda_{p+1}^0,\\
+ \vdots
+\end{array}
+\]
+Hence \(\Delta\) has eigenvectors and eigenvalues on each of these subspaces.  The spectra
+\(
+\mathrm{spec}(\Delta|_{d\Lambda_p}),\quad
+\mathrm{spec}(\Delta|_{\delta\Lambda_{p+1}}),\quad
+\mathrm{spec}(\Delta|_{\Lambda_p^0}),\ldots
+\)
+are related.
+
+\section*{Page 9}
+
+\subsection*{A further relation of spectra}
+
+\textbf{Proposition.}  The spectra of \(\Delta\) restricted to exact and co-exact forms coincide:
+\[
+ \mathrm{spec}\bigl(\Delta|_{d\Lambda_p}\bigr)
+ \;=\;
+ \mathrm{spec}\bigl(\Delta|_{\delta\Lambda_{p+1}}\bigr),
+\]
+and for each eigenvalue in one there is a corresponding eigenvalue in the other.  In other words, the same eigenvalues appear in \(d\Lambda_{p-1}\), \(\delta\Lambda_p\) and \(\Lambda_{p-1}^0\), then again in \(d\Lambda_p\), \(\delta\Lambda_{p+1}\) and \(\Lambda_p^0\), and so on.
+
+\subsection*{Proof}
+
+Assume \(\lambda\in\mathrm{spec}(\Delta|_{d\Lambda_p})\) and let \(w=d\omega\in d\Lambda_p\) be an eigenvector.  Define \(v:=\delta w\in\delta\Lambda_{p+1}\).  Then
+\[
+ \Delta v \;=\; \delta\delta w \;=\; \delta \Delta w \;=\; \lambda\,\delta w \;=\; \lambda\,v,
+\]
+so \(\lambda\in\mathrm{spec}(\Delta|_{\delta\Lambda_{p+1}})\) and \(v\) is the corresponding eigenvector.  Conversely, if \(\lambda\in\mathrm{spec}(\Delta|_{\delta\Lambda_{p+1}})\) with eigenvector \(w=\delta\beta\in\delta\Lambda_{p+1}\), define \(v:=d w\in d\Lambda_p\).  Then
+\[
+ \Delta v \;=\; d\delta w \;=\; d\Delta w \;=\; \lambda\,d w \;=\; \lambda\,v,
+\]
+so \(\lambda\in\mathrm{spec}(\Delta|_{d\Lambda_p})\) with eigenvector \(v\).
+
+\section*{Page 10}
+
+\subsection*{Hodge star interchanges exact and co-exact forms}
+
+Using again \([\Delta,*]=0\) one finds further relations.
+
+\begin{proposition}
+The Hodge star maps exact forms to co-exact forms in complementary degree:
+\[
+ *:\ d\Lambda_p\;\longrightarrow\;\delta\Lambda_{n-p}.
+\]
+In other words, \(*\) sends exact \(p\)–forms to co-exact \((n-p)\)–forms.
+\end{proposition}
+
+\textbf{Sketch of proof.}  Suppose \(w=d\beta\in d\Lambda_p\) and set \(v:=*w\).  Then \(v=*d\beta=(-1)^{(n-p)}\,\delta(*\beta)\), so \(v\in\delta\Lambda_{n-p}\).
+
+A similar proposition holds in the other direction.
+
+\begin{proposition}
+\[
+ *:\ \delta\Lambda_p\;\longrightarrow\;d\Lambda_{n-p}.
+\]
+\end{proposition}
+
+(In the notes this is left as an exercise.)  We have already shown that the Hodge star preserves the spectrum of \(\Delta\).
+
+\subsection*{Summary}
+
+Putting everything together we have, for each \(p\),
+\[
+ \Lambda_{p-1}=d\Lambda_{p-2}\oplus\delta\Lambda_p\oplus\Lambda_{p-1}^0,
+ \quad
+ \Lambda_p=d\Lambda_{p-1}\oplus\delta\Lambda_{p+1}\oplus\Lambda_p^0,
+ \quad
+ \Lambda_{p+1}=d\Lambda_p\oplus\delta\Lambda_{p+2}\oplus\Lambda_{p+1}^0,
+\]
+and so on.  The same spectrum appears repeatedly in these decompositions.  In particular one also finds
+\[
+ \Lambda_p
+ \;=\;
+ d\Lambda_{p-1}\;\oplus\;\delta\Lambda_{p+1}\;\oplus\;\Lambda_p^0
+ \quad\text{and}\quad
+ \Lambda_{n-p}
+ \;=\;
+ d\Lambda_{n-p-1}\;\oplus\;\delta\Lambda_{n-p+1}\;\oplus\;\Lambda_{n-p}^0,
+\]
+and the same eigenvalues of \(\Delta\) occur in \(d\Lambda_{p-1}\) and in \(\delta\Lambda_{n-p+1}\) (this was highlighted in the original notes by using the same colour).
+
+\section*{Page 11}
+
+\subsection*{Example: \(\dim(M)=3\)}
+
+(As an exercise one can repeat the following for \(\dim(M)=4\).)
+
+When \(\dim(M)=3\) one has
+\[
+ \Lambda_0 \;=\; \delta\Lambda_1\;\oplus\;\Lambda_0^0,
+ \qquad
+ \Lambda_1 \;=\; d\Lambda_0\;\oplus\;\delta\Lambda_2\;\oplus\;\Lambda_1^0,
+ \qquad
+ \Lambda_2 \;=\; d\Lambda_1\;\oplus\;\delta\Lambda_3\;\oplus\;\Lambda_2^0,
+ \qquad
+ \Lambda_3 \;=\; d\Lambda_2\;\oplus\;\Lambda_3^0.
+\]
+In the original notes, the same colours were used to indicate the same spectrum of \(\Delta\).
+
+\subsection*{Conclusion}
+
+There is relatively little independent information contained in the spectra of \(p\)–form waves on a 3–dimensional manifold.  For example, when \(\dim(M)=3\) the spectrum of co–vector waves, \(\mathrm{spec}(\Delta|_{\Lambda_1})\), already contains all the information of all these spectra.
+
+\subsection*{Literature and examples}
+
+(Leaving aside literature on detecting boundary shapes from spectra.)
+
+\begin{itemize}
+\item The spectra of \(\Delta\) do not, in general, contain enough information to uniquely identify the Riemannian structure from the spectra alone.
+\item Examples have been found of pairs \((M,g)\) and \((M',g')\) that are isospectral for \(\Delta\) on all degrees \(p\) but that are not diffeomorphic as isometric manifolds.
+\item Nevertheless all known examples are of limited significance: they involve manifolds that are locally, if not globally, isometric; or manifolds that are isospectral only with respect to some \(\Delta\); or manifolds that occur in discrete pairs (for example, mirror images).
+\end{itemize}
+
+\section*{Page 12}
+
+\subsection*{A new approach to spectral geometry}
+
+In recent work of Achim Kempf a new approach called \emph{infinitesimal inverse spectral geometry} has been developed.  The strategy is to iterate an infinitesimal reconstruction procedure.
+
+Assume both the manifold and its spectra are given: a compact Riemannian manifold \((M,g)\) without boundary and the spectra \(\{\lambda_n^{(p)}\}\) of Laplacians \(\Delta^{(p)}\) on the manifold (one could also consider Laplacians on more general tensor fields).
+
+\subsection*{Perturbation}
+
+Now change the shape of \((M,g)\) slightly by perturbing the metric \(g\mapsto g+h\).  This will slightly change the spectrum:
+\[
+ \{\lambda_n^{(m)}\}
+ \quad\longrightarrow\quad
+ \{\lambda_n^{(m)}+\mu_n^{(m)}\}.
+\]
+
+Why is this linearisation useful?  One can define a self–adjoint Laplacian \(\Delta^{(m)}\) acting on the fibre \(T_m(M)\) of the tangent bundle.  It has an orthonormal basis of eigenfunctions \(\{b_n(x)\}\) with eigenvalues \(\{\lambda_n^{(m)}\}\) satisfying
+\[
+ \Delta^{(m)}\, b_n(x) \;=\; \lambda_n^{(m)}\, b_n(x).
+\]
+
+\section*{Page 13}
+
+\subsection*{Linearising the perturbation}
+
+The metric perturbation \(h\in T_g(M)\) can be expanded in this basis:
+\[
+ h \;=\; \sum_{n=1}^\infty h_n\, b_n(x).
+\]
+The perturbation of \(\mathrm{spec}(\Delta^{(m)})\) then takes the form
+\[
+ \{\lambda_n^{(m)}\}
+ \quad\longrightarrow\quad
+ \{\lambda_n^{(m)}+\mu_n^{(m)}\}.
+\]
+Diagrammatically, one can think of adding a bump described by the coefficients \(\{h_n\}_{n=1}^\infty\) to the metric \(g\) and correspondingly shifting the spectrum by \(\{\mu_n^{(m)}\}_{n=1}^\infty\).
+
+Thus we obtain a \emph{linear map}
+\[
+ S\colon \{h_n\}\;\longrightarrow\;\{\mu_n\},
+ \qquad
+ S:\ h_n\ \mapsto\ \mu_n = S_{mn}\,h_m.
+\]
+(In index notation repeated indices are summed.)  If one considers only eigenvectors and eigenvalues up to some cut–off scale, then there are equally many parameters \(\{h_n\}_{n=1}^N\) as there are spectral shifts \(\{\mu_n^{(m)}\}_{n=1}^N\).  Hence \(S\) is a square matrix.  If \(\det S\neq 0\) then \(S\) is invertible and one can recover \(h\) from the spectral shift.  One should then be able to iterate these infinitesimal perturbations.  This is the subject of ongoing research.
+
+\section*{Page 14}
+
+\subsection*{Further remarks}
+
+\begin{itemize}
+\item Not every perturbation \(h\) actually changes the shape.  If \(h=\mathcal{L}_X g\) for some vector field \(X\) then \(g\mapsto g+h\) is merely the infinitesimal change of chart belonging to the flow generated by \(X\).
+\item Symmetric covariant 2–tensors such as \(h\) admit a canonical decomposition similar to the Hodge decomposition.  Accordingly, the Laplacian \(\Delta\) has three distinct spectra on the space \(T_2(M)\) of such tensors.
+\end{itemize}
+
+\subsection*{Reference}
+
+For more details see, for example, the video of Achim Kempf's talk at the Perimeter Institute: \url{http://pirsa.org/15090062}.  The idea of infinitesimal spectral geometry arose from his paper on how spacetime could be simultaneously continuous and discrete, in the same way that information can.
+
+

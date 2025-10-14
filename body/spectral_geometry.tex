@@ -6,3 +6,39 @@
 
 
 Spectral geometry is a field of mathematics that studies the relationship between geometric structures of manifolds and the spectra of differential operators defined on these manifolds, such as the Laplace operator. The Laplace operator plays a pivotal role in spectral geometry as it encapsulates information about the manifold's geometry in its eigenvalues and eigenfunctions. This operator provides insights into the shape and size of the manifold, allowing mathematicians to explore various properties like heat distribution, wave propagation, and quantum mechanics within the context of geometric analysis. Research in spectral geometry aims to understand how the spectrum of the Laplace operator can determine geometric features and topological invariants of the manifold.
+
+A particularly rich setting is provided by the spectrum of the Laplace--de\,Rham operator on differential forms. Let $(M,g)$ be a closed\footnote{Compact and without boundary.} oriented Riemannian manifold of dimension $n$. For $p$-forms $\omega,\eta \in \Omega^p(M)$ we use the $L^2$-inner product
+\begin{equation}
+    \langle \omega,\eta\rangle_{L^2} = \int_M \omega \wedge \star \eta ,
+\end{equation}
+where $\star$ denotes the Hodge star operator determined by $g$. The exterior derivative $d\colon \Omega^p(M)\to \Omega^{p+1}(M)$ has an adjoint $d^{\dagger}\colon \Omega^{p+1}(M)\to \Omega^p(M)$ with respect to this inner product, given by
+\begin{equation}
+    d^{\dagger} = (-1)^{np+n+1}\,\star^{-1} d\, \star .
+\end{equation}
+The Laplace--de\,Rham operator on $p$-forms is then defined by
+\begin{equation}
+    \Delta_p = d\, d^{\dagger} + d^{\dagger} d \colon \Omega^p(M) \longrightarrow \Omega^p(M).
+\end{equation}
+It is an elliptic, self-adjoint, non-negative operator. Solutions of the eigenvalue problem
+\begin{equation}
+    \Delta_p \omega = \lambda \omega , \qquad \omega \in \Omega^p(M),
+    \label{eq:laplace-spectrum}
+\end{equation}
+are called $p$-form eigenmodes of the Laplacian. On a closed manifold the spectrum satisfies
+$0 = \lambda_0^{(p)} < \lambda_1^{(p)} \leq \lambda_2^{(p)} \leq \dotsb \nearrow \infty$ with each eigenvalue having finite multiplicity and associated $L^2$-orthonormal eigenforms. The zero eigenvalue corresponds to the space of \emph{harmonic $p$-forms},
+\begin{equation}
+    \mathcal{H}^p(M) = \bigl\{ \omega \in \Omega^p(M) \mid \Delta_p \omega = 0 \bigr\}
+    = \ker d \cap \ker d^{\dagger}.
+\end{equation}
+Consequently, the dimension of $\mathcal{H}^p(M)$ equals the $p$-th Betti number $b_p(M)$, linking the spectral theory of $\Delta_p$ to the topology of $M$.
+
+This relationship is captured by the Hodge decomposition theorem. It states that every differential form decomposes orthogonally into exact, coexact, and harmonic parts:
+\begin{equation}
+    \Omega^p(M) = \mathcal{H}^p(M) \oplus d \Omega^{p-1}(M) \oplus d^{\dagger} \Omega^{p+1}(M).
+    \label{eq:hodge-decomposition}
+\end{equation}
+Equivalently, every $\omega \in \Omega^p(M)$ can be written uniquely as
+\begin{equation}
+    \omega = \omega_{\mathrm{harm}} + d \alpha + d^{\dagger} \beta ,
+\end{equation}
+where $\omega_{\mathrm{harm}} \in \mathcal{H}^p(M)$, $\alpha \in \Omega^{p-1}(M)$, and $\beta \in \Omega^{p+1}(M)$. This decomposition shows that each de\,Rham cohomology class has a unique harmonic representative and that the nonzero spectrum of $\Delta_p$ is determined entirely by the exact and coexact components. In spectral geometry, analysing how the eigenvalues and eigenforms of $\Delta_p$ vary with the underlying metric reveals subtle geometric information about the manifold.

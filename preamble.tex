@@ -1,0 +1,485 @@
+% ==================================================================
+%====================== README (in progress)======================
+%===================================================================
+% PREAMBLE CONTENTS:
+%----- Conventions
+%----- Drafting and Collaborating
+%----- General Setup
+%----- Math, Graphs and Images
+%----- Coding
+
+%================================================================
+%================ CONVENTIONS (in progress) ====================
+%===============================================================
+% 1. TAGS
+% See the section DRAFTING and COLLABORATIONS below
+% 2. LABELLING
+% Equations, figures, tables etc are labelled in snake_case according
+% to \label{eq:name_of_equation}, \label{fig:name_of_equation}, %\label{table:name_of_equation}
+%
+
+
+%==================================================================
+%-------------------- DRAFTING and COLLABORATING  -------------------
+%==================================================================
+
+%==================================================
+% ---------------Custom Tags------------------------
+%    \citemiss              -- for mising citation(s)
+%    \refmiss               --for missing reference to some label (eqref etc)
+%   \notetag{...}           -- margin note (yellow)
+%   \questiontag{...}       -- margin question (orange)
+%   \todotag{...}           -- margin TODO (red)
+%   \NoteInline{...}     -- inline note (yellow)
+%   \QuestionInline{...} -- inline question (orange)
+%   \TodoInline{...}     -- inline TODO (red)
+%   \cite
+%   \ref
+%
+% ---------------Color Conventions------------------
+%   NOTE:      pale yellow     (NoteColor)
+%   QUESTION:  light orange    (QuestionColor)
+%   TODO:      pale red        (TodoColor)
+%====================================================
+
+\usepackage{comment} % for \begin{comment} environment
+\usepackage{todonotes}
+\usepackage{xspace}
+\setlength{\marginparwidth}{1.5cm} %reduce to avoid overflow of margin tags
+
+\definecolor{NoteColor}{RGB}{255,255,170}
+\definecolor{QuestionColor}{RGB}{255,220,150}
+\definecolor{TodoColor}{RGB}{255,170,170}
+\definecolor{AnswerColor}{RGB}{100,255,100}
+
+%---------------- missing \ref{} or \cite{} ------------------
+\newcommand{\refmiss}{%
+  {\setlength{\fboxsep}{1pt}%
+  \fcolorbox{black}{TodoColor}{\scriptsize (*ref)}}\xspace
+}
+
+\newcommand{\citemiss}{%
+  {\setlength{\fboxsep}{1pt}%
+  \fcolorbox{black}{TodoColor}{\scriptsize (cite)}}\xspace
+}
+
+%-------------------- other tags: note, question, todo ----------------------
+\newcommand{\notetag}[1]{%
+  {\setlength{\fboxsep}{1pt}%
+   \todo[backgroundcolor=NoteColor, bordercolor=black, linecolor=black, size=\scriptsize]{#1}}%
+}
+\newcommand{\questiontag}[1]{%
+  {\setlength{\fboxsep}{1pt}%
+   \todo[backgroundcolor=QuestionColor, bordercolor=black, linecolor=black, size=\scriptsize]{#1}}%
+}
+\newcommand{\todotag}[1]{%
+  {\setlength{\fboxsep}{1pt}%
+   \todo[backgroundcolor=TodoColor, bordercolor=black, linecolor=black, size=\scriptsize]{#1}}%
+}
+\newcommand{\answertag}[1]{%
+  {\setlength{\fboxsep}{1pt}%
+   \todo[backgroundcolor=AnswerColor, bordercolor=black, linecolor=black, size=\scriptsize]{#1}}%
+}
+\newcommand{\noteinline}[1]{%
+  {\setlength{\fboxsep}{1.5pt}%
+  \fcolorbox{black}{NoteColor}{\scriptsize \textcolor{black}{#1}}}%
+}
+\newcommand{\questioninline}[1]{%
+  {\setlength{\fboxsep}{1.5pt}%
+  \fcolorbox{black}{QuestionColor}{\scriptsize \textcolor{black}{#1}}}%
+}
+\newcommand{\todoinline}[1]{%
+  {\setlength{\fboxsep}{1.5pt}%
+  \fcolorbox{black}{TodoColor}{\scriptsize \textcolor{black}{#1}}}%
+}
+\newcommand{\answerinline}[1]{%
+  {\setlength{\fboxsep}{1.5pt}%
+  \fcolorbox{black}{AnswerColor}{\scriptsize \textcolor{black}{#1}}}%
+}
+
+%------------ tags of Andrea----------------------------
+\newcommand{\noteAndrea}[1]{%
+  {\setlength{\fboxsep}{1pt}%
+   \todo[backgroundcolor=NoteColor, bordercolor=black, linecolor=black, size=\scriptsize]{\textbf{A}: #1}}%
+}
+\newcommand{\questionAndrea}[1]{%
+  {\setlength{\fboxsep}{1pt}%
+   \todo[backgroundcolor=QuestionColor, bordercolor=black, linecolor=black, size=\scriptsize]{\textbf{A}: #1}}%
+}
+\newcommand{\todoAndrea}[1]{%
+  {\setlength{\fboxsep}{1pt}%
+   \todo[backgroundcolor=TodoColor, bordercolor=black, linecolor=black, size=\scriptsize]{\textbf{A}: #1}}%
+}
+\newcommand{\answerAndrea}[1]{%
+  {\setlength{\fboxsep}{1pt}%
+   \todo[backgroundcolor=AnswerColor, bordercolor=black, linecolor=black, size=\scriptsize]{\textbf{A}: #1}}%
+}
+\newcommand{\noteinlineAndrea}[1]{%
+  {\setlength{\fboxsep}{1.5pt}%
+  \fcolorbox{black}{NoteColor}{\scriptsize \textcolor{black}{A:~#1}}}%
+}
+\newcommand{\questioninlineAndrea}[1]{%
+  {\setlength{\fboxsep}{1.5pt}%
+  \fcolorbox{black}{QuestionColor}{\scriptsize \textcolor{black}{A:~#1}}}%
+}
+\newcommand{\todoinlineAndrea}[1]{%
+  {\setlength{\fboxsep}{1.5pt}%
+  \fcolorbox{black}{TodoColor}{\scriptsize \textcolor{black}{A:~#1}}}%
+}
+\newcommand{\answerinlineAndrea}[1]{%
+  {\setlength{\fboxsep}{1.5pt}%
+  \fcolorbox{black}{AnswerColor}{\scriptsize \textcolor{black}{A:~#1}}}%
+}
+
+%----------------tags of Emanuele --------------------------
+\newcommand{\noteEmanuele}[1]{%
+  {\setlength{\fboxsep}{1pt}%
+   \todo[backgroundcolor=NoteColor, bordercolor=black, linecolor=black, size=\scriptsize]{\textbf{E}: #1}}%
+}
+\newcommand{\questionEmanuele}[1]{%
+  {\setlength{\fboxsep}{1pt}%
+   \todo[backgroundcolor=QuestionColor, bordercolor=black, linecolor=black, size=\scriptsize]{\textbf{E}: #1}}%
+}
+\newcommand{\todoEmanuele}[1]{%
+  {\setlength{\fboxsep}{1pt}%
+   \todo[backgroundcolor=TodoColor, bordercolor=black, linecolor=black, size=\scriptsize]{\textbf{E}: #1}}%
+}
+\newcommand{\answerEmanuele}[1]{%
+  {\setlength{\fboxsep}{1pt}%
+   \todo[backgroundcolor=AnswerColor, bordercolor=black, linecolor=black, size=\scriptsize]{\textbf{E}: #1}}%
+}
+\newcommand{\noteinlineEmanuele}[1]{%
+  {\setlength{\fboxsep}{1.5pt}%
+  \fcolorbox{black}{NoteColor}{\scriptsize \textcolor{black}{E:~#1}}}%
+}
+\newcommand{\questioninlineEmanuele}[1]{%
+  {\setlength{\fboxsep}{1.5pt}%
+  \fcolorbox{black}{QuestionColor}{\scriptsize \textcolor{black}{E:~#1}}}%
+}
+\newcommand{\todoinlineEmanuele}[1]{%
+  {\setlength{\fboxsep}{1.5pt}%
+  \fcolorbox{black}{TodoColor}{\scriptsize \textcolor{black}{E:~#1}}}
+}
+\newcommand{\answerinlineEmanuele}[1]{%
+  {\setlength{\fboxsep}{1.5pt}%
+  \fcolorbox{black}{AnswerColor}{\scriptsize \textcolor{black}{E:~#1}}}%
+}
+
+
+%==================================================================
+%-------------------- GENERAL SETUP -------------------
+%==================================================================
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------- file extension (pdf variants etc for digital archiving)--------
+
+% \pdfminorversion=4  % PDF 1.4 (required by PDF/A-1)
+
+
+% \usepackage[a-1b]{pdfx}  % PDF/A-1b; requires <main>.xmpdata in project root
+% \usepackage{lmodern}
+% \input{glyphtounicode}
+% \pdfgentounicode=1
+% \usepackage{microtype}
+
+%====================== TEMPORARY DEBUGGING (robust) ======================
+% Hide all external images even if graphicx is already loaded:
+\makeatletter
+%\AtBeginDocument{\setkeys{Gin}{draft}}
+\makeatother
+
+% % OPTIONAL: also neutralize TikZ/pgfplots transparency during the test.
+% % (Only applied if those packages are loaded)
+% \makeatletter
+% \@ifpackageloaded{tikz}{%
+%   \tikzset{
+%     opacity/.code      = {},
+%     fill opacity/.code = {},
+%     draw opacity/.code = {},
+%     text opacity/.code = {}
+%   }%
+% }{}
+% \@ifpackageloaded{pgfplots}{%
+%   \pgfplotsset{
+%     every axis plot/.append style={opacity=1, fill opacity=1},
+%     every axis/.append style={opacity=1}
+%   }%
+% }{}
+% \makeatother
+%=========================================================================
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%====================== TEMPORARY DEBUGGING ================================
+% put this once, anywhere after \documentclass
+\PassOptionsToPackage{draft}{graphicx} % external images become empty boxes
+
+%===================================================================
+
+
+%------------ Geometry-----------------------
+\usepackage[left=1.8cm,right=1.8cm,top=2cm,bottom=2.2cm]{geometry}
+%\raggedbottom  %allow latex NOT to fill the page
+\renewcommand{\baselinestretch}{1} %enforce single spacing between lines (standard)
+
+%---------- Roman pages --------------
+% set the page numbering to lowercase roman one
+% for the contents and figures lists. It also resets
+% page-numbering for the remainder of the dissertation (arabic, starting at 1)
+\newenvironment{romanpages}
+{\cleardoublepage\setcounter{page}{1}\renewcommand{\thepage}{\roman{page}}}
+{\cleardoublepage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
+\usepackage{titling}
+
+%----------- Fonts and languages------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english]{babel} 
+\usepackage{relsize}
+
+%---------- Colors and links -------------------
+\usepackage{xcolor}   
+\usepackage{url} % for links
+\usepackage{hyperref} % for links
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,
+    citecolor = blue,
+    urlcolor=cyan,
+    %pdftitle={Overleaf Example},
+    pdfpagemode=UseNone, % do not enforce fullpage view automatically
+    }
+\urlstyle{same}
+
+%----------- New colors ------------------------ 
+\definecolor{forestgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{niceviolet}{rgb}{0.5, 0.0, 0.6}
+\definecolor{lightblue}{rgb}{0.4, 0.9, 1}
+\definecolor{myyellow}{rgb}{0.9,0.75,0.0}
+
+
+%----------------------- Color boxes for highlighting (adjust as you like) --------------------------------
+\usepackage{tikz}
+\usetikzlibrary{shadows}
+\usetikzlibrary{angles,quotes}
+\usepackage[most]{tcolorbox}
+
+% separated box for highlighting
+% usage \begin{tcolorbox}[fullbluebox] ... \end{tcolorbox}
+\tcbset{
+  fullbluebox/.style={
+    enhanced,
+    breakable,                    % allows multi-paragraphs
+    parbox=false,                 % for indentation
+    colframe=blue!70!black,
+    colback=blue!5,
+    boxrule=0.4pt,
+    arc=2pt,
+    boxsep=3pt,
+    left=3pt,
+    right=3pt,
+    top=2pt,
+    bottom=2pt,
+    before skip=3pt,
+    after skip=3pt,
+    before upper={\setlength{\parindent}{15pt}},  % ensures indent works
+  }
+}
+
+% separated box for highlighting
+% usage \begin{tcolorbox}[fullredbox] ... \end{tcolorbox}
+\tcbset{
+  fullredbox/.style={
+    enhanced,
+    breakable,                    % allows multi-paragraphs
+    parbox=false,                 % for indentation
+    colframe=red!70!black,
+    colback=red!5,
+    boxrule=0.4pt,
+    arc=2pt,
+    boxsep=3pt,
+    left=3pt,
+    right=3pt,
+    top=2pt,
+    bottom=2pt,
+    before skip=3pt,
+    after skip=3pt,
+    before upper={\setlength{\parindent}{15pt}},  % ensures indent works
+  }
+}
+
+% inline box for highlighting
+% use: \inlinefullbluebox{...your_content...}
+\newtcbox{\inlinehighlightbox}{nobeforeafter, on line,
+  colframe=blue!70!black,
+  colback=blue!5,
+  boxrule=0.4pt,       % thinner border
+  arc=1pt,
+  left=2pt, right=2pt, top=1pt, bottom=1pt
+}
+
+% separated box for highlighting
+% usage \begin{tcolorbox}[emptybluebox] ... \end{tcolorbox}
+\tcbset{
+  emptybluebox/.style={
+    colframe=blue!80!black,   % blue border
+    colback=white,            % white background
+    boxrule=0.8pt,            % border thickness
+    sharp corners,            % no rounding
+    enhanced,
+    left=6pt, right=6pt, top=6pt, bottom=6pt
+  }
+}
+
+% inline box for highlighting
+% use: \inlineemptybluebox{...your_content...}
+\newtcbox{\inlineemptybluenbox}{nobeforeafter, on line,
+  colframe=blue!80!black,
+  colback=white,
+  boxrule=0.4pt,       % thinner border
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt
+}
+
+
+%==================================================================
+%-------------------- MATHS, GRAPHS, IMAGES etc -------------------
+%==================================================================
+
+%----------- Math, symbol, graph and image packages ---------------
+\usepackage[usestackEOL]{stackengine}
+\usepackage{wrapfig}  % wrap text around figures
+\usepackage{amsmath} 
+\usepackage{amssymb} 
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{esint}
+\usepackage{braket} 
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{pdfpages} %to display external pdf files as pages of the documents
+\usepackage{tabularx} % for tables
+\usepackage{booktabs} % for tables
+\usepackage{stmaryrd}
+\usepackage{textcomp}
+\usepackage[export]{adjustbox}
+\usepackage{cancel}
+\usepackage{mathabx,epsfig}
+\usepackage{cases}
+\usepackage[overload]{empheq}
+\usepackage{esvect}
+\usepackage{nicefrac}
+\usepackage{mathtools}
+\usepackage[super]{nth}  
+\usepackage[all]{xy}
+\usepackage{subcaption} 
+\usepackage{float}     % For more flexible float placement (e.g. [H] for here)
+\usepackage{tikz}    
+\usepackage[compat=1.1.0]{tikz-feynman} % For feynman diagrams
+\tikzfeynmanset{warn luatex=false}
+\usepackage{relsize}
+\usepackage{stackengine}
+
+\usepackage{tikz}
+\usetikzlibrary{tikzmark,calc}
+
+
+
+%--------------- Theorems, equations and proofs -------------------
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{fact}[definition]{Fact}
+\newtheorem{example}[definition]{Example}
+\newtheorem{claim}[definition]{Claim}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{conjecture}[definition]{Conjecture}
+\newtheorem{notation}[definition]{Notation}
+\newtheorem{assumption}[definition]{Assumption}
+\newtheorem{objective}{Objective}
+\newtheorem{open question}{Open question}
+\newtheorem*{notation*}{Notation}
+\newtheorem*{definition*}{Definition}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{fact*}{Fact}
+\newtheorem*{example*}{Example}
+\newtheorem*{claim*}{Claim}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{conjecture*}{Conjecture}
+\newtheorem{conclusion}{Conclusion}
+\newtheorem{consequence}{Consequence}
+
+%------------------- equations and math displaying--------------------------
+\numberwithin{equation}{section} % numbering reference for equations
+\mathtoolsset{showonlyrefs=true,showmanualtags=true}  %only equations actually referred to are numbered
+\allowdisplaybreaks[4] %set level of permissivity in breaking multiline equations across pages (4 is maximum)
+
+%------------- Generic new math commands (adjust as needed) ------------- 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\E}{\mathbb{E}}
+\DeclareMathOperator{\p}{\mathbb{P}} %probability symbol
+\newcommand{\simsupset}{\raisebox{-0.8ex}{$\stackrel{\supset}{\sim}$}} %symbol for 'almost contained'
+
+
+
+%--------------- Colored cancel lines to strike through terms----------
+\newcommand{\redcancel}[1]{\renewcommand{\CancelColor}{\color{red}}\cancel{#1}}
+\newcommand{\bluecancel}[1]{\renewcommand{\CancelColor}{\color{blue}}\cancel{#1}}
+\newcommand{\greencancel}[1]{\renewcommand{\CancelColor}{\color{green}}\cancel{#1}}
+\newcommand{\graycancel}[1]{\renewcommand{\CancelColor}{\color{gray}}\cancel{#1}}
+
+%--------------- Paper specific new math commands (change each time)-------------------
+\DeclareMathOperator{\pt}{s} % proper time
+\DeclareMathOperator{\ct}{\tau} % conformal time 
+\DeclareMathOperator{\fm}{\mathbf{f}_{m}} % growth rate
+\DeclareMathOperator{\fsm}{\mathbf{f}_{s,m}} %growth rate for stable matter
+\DeclareMathOperator{\fchim}{\mathbf{f}_{\chi,m}} %for decaying 
+\DeclareMathOperator{\flm}{\mathbf{f}_{\ell,m}} %for decaying 
+\newcommand{\m}{\mathrm{m}} % mother particle
+\newcommand{\lcdm}{{\small$\Lambda$CDM }}
+\newcommand{\gcdm}{{\small$\Gamma$CDM }}
+
+
+
+%==================================================================
+%-------------------- CODING -------------------
+%==================================================================
+
+\usepackage{listings} % for code
+\usepackage{caption}  % better captions
+
+\definecolor{codebg}{RGB}{248,248,248}
+\definecolor{codeframe}{RGB}{200,200,200}
+
+\lstdefinestyle{python}{
+  language=Python,
+  backgroundcolor=\color{codebg},
+  frame=single,
+  rulecolor=\color{codeframe},
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{orange},
+  breaklines=true,
+  showstringspaces=false,
+  tabsize=4,
+  captionpos=b
+}
+

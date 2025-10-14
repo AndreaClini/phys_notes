@@ -1,0 +1,42 @@
+%
+%
+\documentclass[a4paper,11pt,twoside, openany]{article}
+\setcounter{secnumdepth}{3}
+\input{preamble}
+
+
+\begin{document}
+
+%%%%%%%%%%%%% FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{romanpages}
+
+\input{front_back_matter/front}   %first page
+\newpage
+
+\include{front_back_matter/abstract}  
+\include{front_back_matter/originality_and_collaborating}
+\input{front_back_matter/checklist}
+
+\newpage
+\tableofcontents
+\include{front_back_matter/introduction}
+
+\end{romanpages}
+
+
+%%%%%%%%% BODY %%%%%%%%%%%%%%%%%%%%%%
+
+\include{body/spectral_geometry}
+
+
+
+
+
+%%%%%%%%%%% BACK MATTER %%%%%%%%%%%%%%%%%%%%%%%%
+%\include{dedication}   % include a dedication.tex file if you like
+\newpage
+\bibliography{paperpile} 
+\bibliographystyle{alpha} % use 'plain' for numbers only
+
+\end{document}

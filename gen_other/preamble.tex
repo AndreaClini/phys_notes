@@ -8,14 +8,15 @@
 %----- Math, Graphs and Images
 %----- Coding
 
+
 %================================================================
 %================ CONVENTIONS (in progress) ====================
 %===============================================================
 % 1. TAGS
 % See the section DRAFTING and COLLABORATIONS below
 % 2. LABELLING
-% Equations, figures, tables etc are labelled in snake_case according
-% to \label{eq:name_of_equation}, \label{fig:name_of_equation}, %\label{table:name_of_equation}
+% (sub)Sections, equations, figures, tables etc are labelled in snake_case according
+% to \label{sec:name_of_section} \label{eq:name_of_equation}, \label{fig:name_of_equation}, %\label{table:name_of_equation}
 %
 
 
@@ -27,9 +28,11 @@
 % ---------------Custom Tags------------------------
 %    \citemiss              -- for mising citation(s)
 %    \refmiss               --for missing reference to some label (eqref etc)
-%   \notetag{...}           -- margin note (yellow)
-%   \questiontag{...}       -- margin question (orange)
-%   \todotag{...}           -- margin TODO (red)
+%   \answertag{...}         -- margin answer  (green)
+%   \notetag{...}           -- margin note or very minor problem (yellow)
+%   \questiontag{...}       -- margin question or problem (orange)
+%   \todotag{...}           -- margin TODO or big problem (red)
+%   \Anwerinline{...}
 %   \NoteInline{...}     -- inline note (yellow)
 %   \QuestionInline{...} -- inline question (orange)
 %   \TodoInline{...}     -- inline TODO (red)
@@ -37,20 +40,21 @@
 %   \ref
 %
 % ---------------Color Conventions------------------
+%   ANSWER:    green            (AnswerColor)
 %   NOTE:      pale yellow     (NoteColor)
 %   QUESTION:  light orange    (QuestionColor)
 %   TODO:      pale red        (TodoColor)
 %====================================================
 
 \usepackage{comment} % for \begin{comment} environment
-\usepackage{todonotes}
+\usepackage{todonotes} % for TODO tags
 \usepackage{xspace}
 \setlength{\marginparwidth}{1.5cm} %reduce to avoid overflow of margin tags
 
+\definecolor{AnswerColor}{RGB}{100,255,100}
 \definecolor{NoteColor}{RGB}{255,255,170}
 \definecolor{QuestionColor}{RGB}{255,220,150}
 \definecolor{TodoColor}{RGB}{255,170,170}
-\definecolor{AnswerColor}{RGB}{100,255,100}
 
 %---------------- missing \ref{} or \cite{} ------------------
 \newcommand{\refmiss}{%
@@ -97,133 +101,43 @@
   \fcolorbox{black}{AnswerColor}{\scriptsize \textcolor{black}{#1}}}%
 }
 
-%------------ tags of Andrea----------------------------
-\newcommand{\noteAndrea}[1]{%
-  {\setlength{\fboxsep}{1pt}%
-   \todo[backgroundcolor=NoteColor, bordercolor=black, linecolor=black, size=\scriptsize]{\textbf{A}: #1}}%
-}
-\newcommand{\questionAndrea}[1]{%
-  {\setlength{\fboxsep}{1pt}%
-   \todo[backgroundcolor=QuestionColor, bordercolor=black, linecolor=black, size=\scriptsize]{\textbf{A}: #1}}%
-}
-\newcommand{\todoAndrea}[1]{%
-  {\setlength{\fboxsep}{1pt}%
-   \todo[backgroundcolor=TodoColor, bordercolor=black, linecolor=black, size=\scriptsize]{\textbf{A}: #1}}%
-}
-\newcommand{\answerAndrea}[1]{%
-  {\setlength{\fboxsep}{1pt}%
-   \todo[backgroundcolor=AnswerColor, bordercolor=black, linecolor=black, size=\scriptsize]{\textbf{A}: #1}}%
-}
-\newcommand{\noteinlineAndrea}[1]{%
-  {\setlength{\fboxsep}{1.5pt}%
-  \fcolorbox{black}{NoteColor}{\scriptsize \textcolor{black}{A:~#1}}}%
-}
-\newcommand{\questioninlineAndrea}[1]{%
-  {\setlength{\fboxsep}{1.5pt}%
-  \fcolorbox{black}{QuestionColor}{\scriptsize \textcolor{black}{A:~#1}}}%
-}
-\newcommand{\todoinlineAndrea}[1]{%
-  {\setlength{\fboxsep}{1.5pt}%
-  \fcolorbox{black}{TodoColor}{\scriptsize \textcolor{black}{A:~#1}}}%
-}
-\newcommand{\answerinlineAndrea}[1]{%
-  {\setlength{\fboxsep}{1.5pt}%
-  \fcolorbox{black}{AnswerColor}{\scriptsize \textcolor{black}{A:~#1}}}%
-}
-
-%----------------tags of Emanuele --------------------------
-\newcommand{\noteEmanuele}[1]{%
-  {\setlength{\fboxsep}{1pt}%
-   \todo[backgroundcolor=NoteColor, bordercolor=black, linecolor=black, size=\scriptsize]{\textbf{E}: #1}}%
-}
-\newcommand{\questionEmanuele}[1]{%
-  {\setlength{\fboxsep}{1pt}%
-   \todo[backgroundcolor=QuestionColor, bordercolor=black, linecolor=black, size=\scriptsize]{\textbf{E}: #1}}%
-}
-\newcommand{\todoEmanuele}[1]{%
-  {\setlength{\fboxsep}{1pt}%
-   \todo[backgroundcolor=TodoColor, bordercolor=black, linecolor=black, size=\scriptsize]{\textbf{E}: #1}}%
-}
-\newcommand{\answerEmanuele}[1]{%
-  {\setlength{\fboxsep}{1pt}%
-   \todo[backgroundcolor=AnswerColor, bordercolor=black, linecolor=black, size=\scriptsize]{\textbf{E}: #1}}%
-}
-\newcommand{\noteinlineEmanuele}[1]{%
-  {\setlength{\fboxsep}{1.5pt}%
-  \fcolorbox{black}{NoteColor}{\scriptsize \textcolor{black}{E:~#1}}}%
-}
-\newcommand{\questioninlineEmanuele}[1]{%
-  {\setlength{\fboxsep}{1.5pt}%
-  \fcolorbox{black}{QuestionColor}{\scriptsize \textcolor{black}{E:~#1}}}%
-}
-\newcommand{\todoinlineEmanuele}[1]{%
-  {\setlength{\fboxsep}{1.5pt}%
-  \fcolorbox{black}{TodoColor}{\scriptsize \textcolor{black}{E:~#1}}}
-}
-\newcommand{\answerinlineEmanuele}[1]{%
-  {\setlength{\fboxsep}{1.5pt}%
-  \fcolorbox{black}{AnswerColor}{\scriptsize \textcolor{black}{E:~#1}}}%
-}
-
 
 %==================================================================
 %-------------------- GENERAL SETUP -------------------
 %==================================================================
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%-------------------- file extension (pdf variants etc for digital archiving)--------
-
-% \pdfminorversion=4  % PDF 1.4 (required by PDF/A-1)
-
-
-% \usepackage[a-1b]{pdfx}  % PDF/A-1b; requires <main>.xmpdata in project root
-% \usepackage{lmodern}
-% \input{glyphtounicode}
-% \pdfgentounicode=1
-% \usepackage{microtype}
-
-%====================== TEMPORARY DEBUGGING (robust) ======================
-% Hide all external images even if graphicx is already loaded:
-\makeatletter
-%\AtBeginDocument{\setkeys{Gin}{draft}}
-\makeatother
-
-% % OPTIONAL: also neutralize TikZ/pgfplots transparency during the test.
-% % (Only applied if those packages are loaded)
-% \makeatletter
-% \@ifpackageloaded{tikz}{%
-%   \tikzset{
-%     opacity/.code      = {},
-%     fill opacity/.code = {},
-%     draw opacity/.code = {},
-%     text opacity/.code = {}
-%   }%
-% }{}
-% \@ifpackageloaded{pgfplots}{%
-%   \pgfplotsset{
-%     every axis plot/.append style={opacity=1, fill opacity=1},
-%     every axis/.append style={opacity=1}
-%   }%
-% }{}
-% \makeatother
-%=========================================================================
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%====================== TEMPORARY DEBUGGING ================================
-% put this once, anywhere after \documentclass
-\PassOptionsToPackage{draft}{graphicx} % external images become empty boxes
-
-%===================================================================
-
-
 %------------ Geometry-----------------------
 \usepackage[left=1.8cm,right=1.8cm,top=2cm,bottom=2.2cm]{geometry}
 %\raggedbottom  %allow latex NOT to fill the page
 \renewcommand{\baselinestretch}{1} %enforce single spacing between lines (standard)
+
+%----------- Fonts and languages------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english]{babel} 
+\usepackage{relsize}
+
+%------------ Table of Contents --------------
+\usepackage{tocloft}
+\setlength{\cftchapnumwidth}{1.1em}   % space between chapter number and title
+\setlength{\cftsecnumwidth}{1.0em}    % space between section number and title
+\setlength{\cftsubsecnumwidth}{1.5em}    % space between subsection number and title
+
+\renewcommand{\cftpartfont}{\Large\bfseries}
+\renewcommand{\cftpartpagefont}{\Large\bfseries}
+
+%----------- Section and chapter styles --------------
+\usepackage{titlesec}
+
+\titleformat{\chapter}[hang]{\huge\bfseries}{\thechapter}{0.5em}{} % remove "Chapter" from chapter titles
+\titlespacing*{\chapter}{0pt}{*2}{*4}
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.5em}{}
+
+\makeatletter
+\renewcommand{\thesection}{\arabic{section}}
+\@addtoreset{section}{chapter}
+\makeatother
 
 %---------- Roman pages --------------
 % set the page numbering to lowercase roman one
@@ -233,12 +147,6 @@
 {\cleardoublepage\setcounter{page}{1}\renewcommand{\thepage}{\roman{page}}}
 {\cleardoublepage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
 \usepackage{titling}
-
-%----------- Fonts and languages------
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc} 
-\usepackage[english]{babel} 
-\usepackage{relsize}
 
 %---------- Colors and links -------------------
 \usepackage{xcolor}   
@@ -262,7 +170,7 @@
 \definecolor{myyellow}{rgb}{0.9,0.75,0.0}
 
 
-%----------------------- Color boxes for highlighting (adjust as you like) --------------------------------
+%---------------- Color boxes for highlighting (adjust as you like) --------------------------------
 \usepackage{tikz}
 \usetikzlibrary{shadows}
 \usetikzlibrary{angles,quotes}
@@ -435,9 +343,7 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\p}{\mathbb{P}} %probability symbol
-\newcommand{\simsupset}{\raisebox{-0.8ex}{$\stackrel{\supset}{\sim}$}} %symbol for 'almost contained'
-
-
+\newcommand{\simsupset}{\raisebox{-0.8ex}{$\stackrel{\supset}{\sim}$}} %symbol for 'almost contained' 
 
 %--------------- Colored cancel lines to strike through terms----------
 \newcommand{\redcancel}[1]{\renewcommand{\CancelColor}{\color{red}}\cancel{#1}}

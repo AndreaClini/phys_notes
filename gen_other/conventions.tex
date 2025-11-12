@@ -1,0 +1,49 @@
+\section*{README: Collaborating, conventions and examples (in progress)}
+
+%------------------------------------------------------------------------------------------
+\subsection*{Conventions for Notes, Questions, TODOs, Problems etc}
+
+\begin{itemize}
+    \item Use \verb|\answertag{...}|, \verb|\notetag{...}|, \verb|\questiontag{...}|, \verb|\todotag{...}| for page margin notes (green, yellow, orange, red, respectively).
+    As a rule of thumb 
+    \begin{itemize}
+        \item \verb|\answertag{...}| for answer
+        \item \verb|\notetag{...}| for notes or minor problems
+        \item \verb|\notetag{...}| for questions or problems
+        \item \verb|\notetag{...}| for things to be done or big problems
+    \end{itemize}
+    \item Use \verb|\answerinline{...}|, \verb|\noteinline{...}|, \verb|\questioninline{...}|, \verb|\todoinline{...}| for inline notes (for equations or wherever you like).
+    \item For brevity, use \citemiss to denote missing citations and \refmiss to denote missing references to labels.
+\end{itemize}
+
+\subsubsection*{Examples}
+
+This is some text that needs some note.\notetag{A margin note /minor problem}  
+More text that raises some questions.\questiontag{A question or problem}  
+\\
+This sentence contains an inline note \noteinline{Check this value!} and continues without breaking the line. 
+And now some more text with some answers. \answertag{An answer.}
+Next we have an example in math mode
+\[
+  E = mc^2. \quad \todoinline{Explain this equation is often false.}
+\]
+
+
+%----------------------------------------------------------------------------------------------------
+\subsection*{Conventions for Labelling}
+%
+
+Labeling is in snake\_case in the form \verb|\label{TYPE:name_in_snake_case}| with some meaningful name.
+\begin{itemize}
+    \item Sections, subsections etc are all labelled with \verb|\label{sec:name_of_section|
+    \item Equations are labelled with \verb|\label{eq:name_of_equation}|
+    \item Figures are labelled with \verb|\label{fig:name_of_equation}| 
+    \item And so on \dots
+    \todotag{a Todo or  big problem}
+    
+\end{itemize}
+
+%----------------------------------------------------------------------------------------------------
+\subsection*{Something else that should be decided beforehand}
+%
+I might very well have forgotten something\dots
